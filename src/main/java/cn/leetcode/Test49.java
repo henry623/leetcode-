@@ -35,6 +35,7 @@ public class Test49 {
             char[] array = str.toCharArray();
             Arrays.sort(array);
             String key = new String(array);
+            // 将排序后的字符串作为哈希表的键 getOrDefault()方法 获取键对应的值，如果键不存在，则返回默认值 默认值为空列表
             List<String> list = map.getOrDefault(key, new ArrayList<String>());
             list.add(str);
             map.put(key, list);

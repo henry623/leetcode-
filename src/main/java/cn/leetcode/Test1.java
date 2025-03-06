@@ -24,7 +24,7 @@ public class Test1 {
         int[] nums = new int[]{2,7,11,15};
         int target = 9;
         Test1 test1 = new Test1();
-        int[] ints = test1.twoSum2(nums, target);
+        int[] ints = test1.twoSum(nums, target);
         System.out.println(Arrays.toString(ints));
         for (int anInt : ints) {
             System.out.println(anInt);
@@ -35,8 +35,8 @@ public class Test1 {
 
     public int[] twoSum(int[] nums, int target) {
         int n = nums.length;
-        for (int i = 0; i < n; ++i) {
-            for (int j = i + 1; j < n; ++j) {
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
                 if (nums[i] + nums[j] == target) {
                     return new int[]{i, j};
                 }
