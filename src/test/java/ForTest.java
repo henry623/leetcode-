@@ -6,6 +6,13 @@ public class ForTest {
         int c = ++a;
         System.out.println(b);
         System.out.println(c);
+
+        int i = 10;
+        Integer integer = new Integer(i);
+        String string = integer.toString(integer);
+        System.out.println(string);
+
+
 //
 ////            b++;
 //            System.out.println(i);
