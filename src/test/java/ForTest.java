@@ -3,7 +3,8 @@ public class ForTest {
         int a = 5;
 
         int b = a++;
-        int c = ++a;
+        int c = a++;
+        //int c = ++a;
         System.out.println(b);
         System.out.println(c);
 
