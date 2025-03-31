@@ -1,5 +1,6 @@
 package cn.leetcode;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,9 +24,9 @@ public class Test3 {
      * 请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
      */
     public static void main(String[] args) {
-        String s = "abcabcbb";
+        String s = "pwwkew";
         Test3 test3 = new Test3();
-        int i = test3.lengthOfLongestSubstring(s);
+        int i = test3.lengthOfLongestSubstring2(s);
         System.out.println(i);
 
 
@@ -53,6 +54,23 @@ public class Test3 {
         }
         return ans;
     }
+
+    public int lengthOfLongestSubstring2(String s) {
+        if (s.length()==0) return 0;
+        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+        int max = 0;
+        int left = 0;
+        for(int i = 0; i < s.length(); i ++){
+            if(map.containsKey(s.charAt(i))){
+                left = Math.max(left,map.get(s.charAt(i)) + 1);
+            }
+            map.put(s.charAt(i),i);
+            max = Math.max(max,i-left+1);
+        }
+        return max;
+
+    }
+
 
 
 }
