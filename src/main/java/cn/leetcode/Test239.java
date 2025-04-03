@@ -44,7 +44,7 @@ public class Test239 {
         // 定义最大堆，按值降序排序，值相同时按索引降序排序（保证最新的元素优先）
         PriorityQueue<int[]> pq = new PriorityQueue<>(new Comparator<int[]>() {
             public int compare(int[] pair1, int[] pair2) {
-                //compare 默认(o1,o2) o1 - o2 < 0, 则o1排在o2前
+                //compare 默认(o1,o2) o1 - o2 > 0, 则o1排在o2后; o2 - o1 > 0, 则o1排在o2后
                 return pair1[0] != pair2[0] ?
                         pair2[0] - pair1[0] :  // 值大的优先
                         pair2[1] - pair1[1];   // 值相同时，索引大的优先
