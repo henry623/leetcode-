@@ -25,6 +25,8 @@ public class ForTest {
 //        System.out.println(a);//11
 
         int x = 5;
+        int a = 12/x;
+        System.out.println(a);
         int y = x++; // 先将 x 的当前值赋给 y（y 变为 5），然后将 x 加 1（x 变为 6）
         System.out.println("x: " + x); // 输出 6
         System.out.println("y: " + y); // 输出 5

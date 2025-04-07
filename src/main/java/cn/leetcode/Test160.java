@@ -60,30 +60,39 @@ public class Test160 {
     public static void main(String[] args) {
 
         Test160 test160 = new Test160();
+        // 创建公共尾部节点
+        ListNode commonNode = new ListNode(8);
+        commonNode.next = new ListNode(4);
+        commonNode.next.next = new ListNode(5);
+
         ListNode listNode1 = new ListNode(4);
         listNode1.next = new ListNode(1);
-        listNode1.next.next = new ListNode(8);
-        listNode1.next.next.next = new ListNode(4);
-        listNode1.next.next.next.next = new ListNode(5);
+        listNode1.next.next = commonNode;
+//        listNode1.next.next = new ListNode(8);
+//        listNode1.next.next.next = new ListNode(4);
+//        listNode1.next.next.next.next = new ListNode(5);
         ListNode listNode2 = new ListNode(5);
         listNode2.next = new ListNode(6);
         listNode2.next.next = new ListNode(1);
-        listNode2.next.next.next = new ListNode(8);
-        listNode2.next.next.next.next = new ListNode(4);
-        listNode2.next.next.next.next.next = new ListNode(5);
+        listNode2.next.next.next = commonNode;
+//        listNode2.next.next.next = new ListNode(8);
+//        listNode2.next.next.next.next = new ListNode(4);
+//        listNode2.next.next.next.next.next = new ListNode(5);
         ListNode listNode3 = test160.getIntersectionNode(listNode1, listNode2);
-        if (listNode3 != null) {
-            System.out.println("Intersected at '" + listNode3.val + "'");
-        } else {
-            System.out.println("No intersection");
-        }
-//        System.out.println(listNode3.val);
+//        if (listNode3 != null) {
+//            System.out.println("Intersected at '" + listNode3.val + "'");
+//        } else {
+//            System.out.println("No intersection");
+//        }
+        //如果不写公共节点，访问的是创建的地址值，会返回空指针异常，因为两个链表新创建的地址值都不同
+        System.out.println(listNode3.val);
     }
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         Set<ListNode> visited = new HashSet<ListNode>();
         ListNode temp = headA;
-        System.out.println("headA:" + headA.val);
+        //System.out.println("headA:" + headA.val);
+        //System.out.println(headA.next.val);
         while (temp != null) {
             visited.add(temp);
             temp = temp.next;
