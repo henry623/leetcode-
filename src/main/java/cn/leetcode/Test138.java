@@ -1,5 +1,8 @@
 package cn.leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Test138 {
     //138. 复制带随机指针的链表
 
@@ -32,5 +35,69 @@ public class Test138 {
 
     public static void main(String[] args) {
 
+        Test138 test138 = new Test138();
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
+        System.out.println(node1);
+        System.out.println(node2);
+        System.out.println(node3);
+        System.out.println(node4);
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        //node4.next = node1;
+        node1.random = node3;
+        node2.random = node4;
+        node3.random = node2;
+        //node4.random = node1;
+        Node node = test138.copyRandomList(node1);
+        while (node != null) {
+            System.out.println(node.val);
+            System.out.println(node);
+            node = node.next;
+        }
     }
+
+    Map<Node, Node> cachedNode = new HashMap<Node, Node>();
+
+    public Node copyRandomList(Node head) {
+        if (head == null) {
+            return null;
+        }
+        if (!cachedNode.containsKey(head)) {
+            Node headNew = new Node(head.val);
+            cachedNode.put(head, headNew);
+            headNew.next = copyRandomList(head.next);
+            headNew.random = copyRandomList(head.random);
+        }
+        return cachedNode.get(head);
+    }
+
+    public Node copyRandomList2(Node head) {
+        if (head == null) {
+            return null;
+        }
+        for (Node node = head; node != null; node = node.next.next) {
+            Node nodeNew = new Node(node.val);
+            nodeNew.next = node.next;
+            node.next = nodeNew;
+        }
+        for (Node node = head; node != null; node = node.next.next) {
+            Node nodeNew = node.next;
+            //指向源节点对应的新节点
+            nodeNew.random = (node.random != null) ? node.random.next : null;
+        }
+        Node headNew = head.next;
+        for (Node node = head; node != null; node = node.next) {
+            Node nodeNew = node.next;
+            //将两个合并的链表分开
+            node.next = node.next.next;
+            nodeNew.next = (nodeNew.next != null) ? nodeNew.next.next : null;
+        }
+        return headNew;
+    }
+
+
 }
