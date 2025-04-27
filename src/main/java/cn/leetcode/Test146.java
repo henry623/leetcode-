@@ -1,5 +1,8 @@
 package cn.leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Test146 {
     // 146. LRU 缓存机制
 
@@ -38,7 +41,7 @@ public class Test146 {
 
     public static void main(String[] args) {
 
+        System.out.println("见LRUCache");
     }
-
-
 }
+
