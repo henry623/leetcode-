@@ -28,7 +28,9 @@ public class Test199 {
 
     public static void main(String[] args) {
         Test199 test199 = new Test199();
-        List<Integer> integers = test199.new Solution().rightSideView(new TreeNode(1, new TreeNode(2,null, new TreeNode(5)), new TreeNode(3,null, new TreeNode(4))));
+        List<Integer> integers = test199.new Solution().rightSideView(
+                new TreeNode(1, new TreeNode(2,null, new TreeNode(5))
+                        , new TreeNode(3,null, new TreeNode(4))));
         System.out.println(integers);
     }
 

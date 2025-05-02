@@ -20,6 +20,14 @@ public class Test101 {
      */
 
     public static void main(String[] args) {
+        Test101 test101 = new Test101();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(2);
+        root.left.left = new TreeNode(3);
+        root.left.right = new TreeNode(3);
+        System.out.println(test101.new Solution().isSymmetric(root));
+
 
     }
 

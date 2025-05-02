@@ -2,6 +2,20 @@ import java.util.Scanner;
 import java.util.Scanner;
 
 public class Test1 {
+    /**
+     *长度为n的数组a 定义一次操作
+     * 选择数组中的一个数，然后把这个数从数组中移除。
+     * 其余元素按照原有顺序从前到后依次拼接。
+     * 现在他想知道，自己最少要操作多少次，才能使数组中所有非空子数组平均值相同
+     *
+     * 子数组为从原数组中，连续的选择一段元素(可以全选、可以不选)得到的新数组。
+     * 输入：
+     * 第一行输入一个整数n 表示数组长度
+     * 第二行输入n个整数，表示数组a的元素
+     * 输出：
+     * 输出一个整数表示最少操作次数
+     *
+     */
 
     public static void main(String[] args) {
             Scanner scanner = new Scanner(System.in);
