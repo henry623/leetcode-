@@ -1,5 +1,3 @@
-import java.util.concurrent.atomic.AtomicInteger;
-
 public class AtomicIntegerAddition {
     //private static AtomicInteger num = new AtomicInteger(0);
     private static int num2 = 0;
@@ -22,11 +20,15 @@ public class AtomicIntegerAddition {
         thread1.start();
         thread2.start();
 
-        try {
+        /*try {
             thread1.join();
             thread2.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }*/
+        while (thread1.isAlive() || thread2.isAlive()) {
+            // do nothing
+
         }
 
         //System.out.println("Final value: " + num.get());
