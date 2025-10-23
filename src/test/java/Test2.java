@@ -12,5 +12,8 @@ public class Test2 {
         Integer f =127;
         System.out.println(e==f);
 
+        String str = " a bc  ";
+        System.out.println(str.trim());
+
     }
 }
